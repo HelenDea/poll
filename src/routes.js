@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import Home from "./home/homePage.js";
-import QuestionListPage from "./questionList/containers/questionListPage.js";
-import QuestionDetailsPage from "./questionDetails/containers/questionDetailsPage.js";
+import QuestionListPage from "./questionList/pages/questionListPage.js";
+import QuestionDetailsPage from "./questionDetails/pages/questionDetailsPage.js";
 
 export const Routes = (
   <Switch>

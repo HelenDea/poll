@@ -3,12 +3,7 @@ import { Routes } from "./routes.js";
 
 class App extends Component {
   render() {
-    return (
-      <div>
-        Welcome
-        {Routes}
-      </div>
-    );
+    return <div>{Routes}</div>;
   }
 }
 
