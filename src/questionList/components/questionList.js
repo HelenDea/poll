@@ -10,6 +10,7 @@ export default function QuestionList({ questionList, loadMore, hasMore }) {
           <QuestionItem
             key={item.url}
             question={item.question}
+            published_at={item.published_at}
             url={item.url}
             choicesNumber={item.choices.length}
           />
