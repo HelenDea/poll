@@ -1,5 +1,6 @@
 import { css } from "emotion";
 import { DARK_GREY, LIGHT_GREY, INDIGO } from "../../uiKit/variables/colors.js";
+import { MEDIUM_BREAKPOINT } from "../../common/config.js";
 
 export default {
   questionBlock: css`
@@ -7,6 +8,10 @@ export default {
     border: 1px solid ${LIGHT_GREY};
     border-radius: 4px;
     color: ${DARK_GREY};
+
+    @media (max-width: ${MEDIUM_BREAKPOINT}) {
+      padding: 15px;
+    }
   `,
   title: css`
     font-size: 18px;

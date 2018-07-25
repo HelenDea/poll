@@ -7,17 +7,20 @@ import styles from "./questionList.styles.js";
 export default function QuestionList({ questionList, loadMore, hasMore }) {
   return (
     <div>
-      {questionList &&
-        questionList.map(item => (
-          <QuestionItem
-            key={item.url}
-            className={styles.questionItem}
-            question={item.question}
-            published_at={item.published_at}
-            url={item.url}
-            choicesNumber={item.choices.length}
-          />
-        ))}
+      <div className={styles.questionList}>
+        {questionList &&
+          questionList.map(item => (
+            <div className={styles.questionItem}>
+              <QuestionItem
+                key={item.url}
+                question={item.question}
+                published_at={item.published_at}
+                url={item.url}
+                choicesNumber={item.choices.length}
+              />
+            </div>
+          ))}
+      </div>
       {hasMore && (
         <div className={styles.buttonHolder}>
           <Button onClick={loadMore}>Load more</Button>
