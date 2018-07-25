@@ -8,7 +8,7 @@ const QuestionSummaryContainer = withQuestionSummary(QuestionSummary);
 const AnswerQuestionContainer = withQuestionDetails(AnswerQuestion);
 
 class QuestionDetailsContainer extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.load(this.props.questionId);
   }
 

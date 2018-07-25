@@ -4,6 +4,7 @@ import {
   connect
 } from "../provider/questionListProvider.js";
 import QuestionList from "../components/questionList.js";
+import { Headline } from "../../uiKit/headline/headline.js";
 
 const QuestionListContainer = connect(QuestionList);
 
@@ -12,7 +13,7 @@ class QuestionListPage extends Component {
     return (
       <div>
         <QuestionListProvider>
-          Question List Page
+          <Headline>Question List Page</Headline>
           <QuestionListContainer />
         </QuestionListProvider>
       </div>
