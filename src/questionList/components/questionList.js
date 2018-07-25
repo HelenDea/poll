@@ -11,6 +11,7 @@ export default function QuestionList({ questionList, loadMore, hasMore }) {
             key={item.url}
             question={item.question}
             url={item.url}
+            choicesNumber={item.choices.length}
           />
         ))}
       {hasMore && <button onClick={loadMore}>Load more</button>}
