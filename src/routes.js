@@ -7,7 +7,11 @@ import QuestionDetailsPage from "./questionDetails/pages/questionDetailsPage.js"
 export const Routes = (
   <Switch>
     <Route exact path="/questions" component={QuestionListPage} />
-    <Route exact path="/questions/:id" component={QuestionDetailsPage} />
+    <Route
+      exact
+      path="/questions/:questionId"
+      component={QuestionDetailsPage}
+    />
     <Route exact path="/" component={Home} />
   </Switch>
 );
