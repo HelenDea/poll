@@ -31,10 +31,10 @@ export default function QuestionItem({
   );
 }
 
-QuestionItem.proptypes = {
+QuestionItem.propTypes = {
   question: T.string.isRequired,
   url: T.string.isRequired,
-  published_at: T.instanceOf(Date),
+  published_at: T.string.isRequired,
   choicesNumber: T.number.isRequired,
   className: T.string
 };

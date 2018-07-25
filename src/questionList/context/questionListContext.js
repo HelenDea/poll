@@ -12,7 +12,11 @@ function fetchQuestionList(page = 1, callback) {
 }
 
 export class QuestionListProvider extends Component {
-  state = { questionList: [], page: 1 };
+  state = {
+    questionList: [],
+    page: 1,
+    hasMore: true
+  };
 
   load = () => {
     fetchQuestionList(this.state.page, data => {
@@ -28,7 +32,7 @@ export class QuestionListProvider extends Component {
       this.setState({
         questionList: [...this.state.questionList, ...data],
         page: this.state.page + 1,
-        hasMore: data.length
+        hasMore: !!data.length
       });
     });
   };

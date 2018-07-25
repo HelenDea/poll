@@ -1,7 +1,8 @@
 import React from "react";
 import T from "prop-types";
 import { css } from "emotion";
-import { WHITE, INDIGO } from "./variables/colors.js";
+import cx from "classnames";
+import { WHITE, INDIGO, LIGHT_GREY } from "./variables/colors.js";
 
 const styles = {
   button: css`
@@ -14,12 +15,18 @@ const styles = {
     font-weight: bold;
     border-radius: 4px;
     background-color: ${INDIGO};
+  `,
+  disabled: css`
+    background-color: ${LIGHT_GREY};
   `
 };
 
-export function Button({ children, onClick }) {
+export function Button({ children, onClick, className, disabled }) {
+  const buttonClassName = cx(styles.button, className, {
+    [styles.disabled]: disabled
+  });
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button className={buttonClassName} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
@@ -27,5 +34,6 @@ export function Button({ children, onClick }) {
 
 Button.proptTypes = {
   children: T.node.isRequired,
-  onClick: T.func.isRequired
+  onClick: T.func.isRequired,
+  disabled: T.bool
 };

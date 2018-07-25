@@ -27,7 +27,7 @@ export default function QuestionList({ questionList, loadMore, hasMore }) {
   );
 }
 
-QuestionList.proptypes = {
+QuestionList.propTypes = {
   questionList: T.array,
   loadMore: T.func.isRequired,
   hasMore: T.bool.isRequired

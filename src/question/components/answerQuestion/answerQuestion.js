@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import T from "prop-types";
+import cx from "classnames";
+import { Button } from "../../../uiKit/button.js";
+import questionStyles from "../question.styles.js";
+import styles from "./answerQuestion.styles.js";
 
 export default class AnswerQuestion extends Component {
   state = {
@@ -23,9 +27,14 @@ export default class AnswerQuestion extends Component {
     const { question, id, choices } = this.props.questionData;
     return (
       <div>
-        <div>Question: {question}</div>
+        <div className={questionStyles.questionStyles}>
+          Question: {question}
+        </div>
         {choices.map(item => (
-          <div key={item.id}>
+          <div
+            key={item.id}
+            className={cx(questionStyles.choiceItem, styles.choiceItem)}
+          >
             <input
               type="radio"
               id={item.id}
@@ -36,14 +45,18 @@ export default class AnswerQuestion extends Component {
             <label htmlFor={item.id}>{item.choice}</label>
           </div>
         ))}
-        <button disabled={!this.state.selectedChoiceId} onClick={this.vote}>
+        <Button
+          disabled={!this.state.selectedChoiceId}
+          onClick={this.vote}
+          className={styles.button}
+        >
           Vote
-        </button>
+        </Button>
       </div>
     );
   }
 }
-AnswerQuestion.proptypes = {
+AnswerQuestion.propTypes = {
   questionData: T.shape({
     question: T.string.isRequired,
     choices: T.array.isRequired

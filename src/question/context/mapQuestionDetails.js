@@ -25,6 +25,7 @@ export function mapToQuestionDetails(questionData, addPercentage) {
         choice: item.choice,
         url: item.url,
         id: getLastIdFromUrl(item.url),
+        votes: item.votes,
         percentage: item.votes > 0 ? (item.votes * 100) / totalVotesNumber : 0
       };
     })
