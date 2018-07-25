@@ -1,12 +1,12 @@
 import React from "react";
 import { shallow } from "enzyme";
-// import sinon from 'sinon';
+import sinon from "sinon";
 
 import QuestionList from "./questionList.js";
 import QuestionItem from "./questionItem.js";
 import { Button } from "../../uiKit/button.js";
 
-describe.only("<QuestionList />", () => {
+describe("<QuestionList />", () => {
   it("should not render <QuestionItem /> if questionList is not provided ", () => {
     const wrapper = shallow(
       <QuestionList questionList={[]} loadMore={() => {}} hasMore={false} />
@@ -38,10 +38,21 @@ describe.only("<QuestionList />", () => {
     );
     expect(wrapper.find(QuestionItem).length).toEqual(2);
   });
+
   it("should render <Button /> if hasMore is true ", () => {
     const wrapper = shallow(
       <QuestionList questionList={[]} loadMore={() => {}} hasMore={true} />
     );
     expect(wrapper.find(Button).length).toEqual(1);
+  });
+
+  it("should invoke onClick callback when click to <Button/>", () => {
+    const onButtonClick = sinon.spy();
+    const wrapper = shallow(
+      <QuestionList questionList={[]} loadMore={onButtonClick} hasMore={true} />
+    );
+    expect(wrapper.find(Button).length).toEqual(1);
+    wrapper.find(Button).simulate("click");
+    expect(onButtonClick.calledOnce).toEqual(true);
   });
 });

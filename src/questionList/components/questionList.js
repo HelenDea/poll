@@ -10,9 +10,8 @@ export default function QuestionList({ questionList, loadMore, hasMore }) {
       <div className={styles.questionList}>
         {questionList &&
           questionList.map(item => (
-            <div className={styles.questionItem}>
+            <div className={styles.questionItem} key={item.url}>
               <QuestionItem
-                key={item.url}
                 question={item.question}
                 published_at={item.published_at}
                 url={item.url}
