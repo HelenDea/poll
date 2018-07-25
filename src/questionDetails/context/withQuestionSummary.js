@@ -1,6 +1,6 @@
 import React from "react";
 import { QuestionDetailsConsumer } from "./questionDetailsContext.js";
-import { mapToQuestionSummary } from "./mapQuestionDetails.js";
+import { mapToQuestionDetails } from "./mapQuestionDetails.js";
 
 export function withQuestionSummary(Component) {
   return function QuestionSummaryComponent(props) {
@@ -9,7 +9,7 @@ export function withQuestionSummary(Component) {
         {value => (
           <Component
             {...props}
-            questionData={mapToQuestionSummary(value.questionData)}
+            questionData={mapToQuestionDetails(value.questionData, true)}
           />
         )}
       </QuestionDetailsConsumer>
