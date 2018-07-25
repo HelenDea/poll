@@ -1,7 +1,7 @@
 import React from "react";
 import T from "prop-types";
 import { css } from "emotion";
-import { INDIGO } from "../../uiKit/variables/colors.js";
+import { INDIGO } from "./variables/colors.js";
 
 const styles = {
   headline: css`

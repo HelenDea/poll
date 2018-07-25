@@ -1,5 +1,5 @@
 import React from "react";
-import { Headline } from "../uiKit/headline/headline.js";
+import { Headline } from "../uiKit/headline.js";
 
 export default function HomePage() {
   return (

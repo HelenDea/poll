@@ -1,6 +1,8 @@
 import React from "react";
 import T from "prop-types";
 import QuestionItem from "./questionItem.js";
+import { Button } from "../../uiKit/button.js";
+import styles from "./questionList.styles.js";
 
 export default function QuestionList({ questionList, loadMore, hasMore }) {
   return (
@@ -9,13 +11,18 @@ export default function QuestionList({ questionList, loadMore, hasMore }) {
         questionList.map(item => (
           <QuestionItem
             key={item.url}
+            className={styles.questionItem}
             question={item.question}
             published_at={item.published_at}
             url={item.url}
             choicesNumber={item.choices.length}
           />
         ))}
-      {hasMore && <button onClick={loadMore}>Load more</button>}
+      {hasMore && (
+        <div className={styles.buttonHolder}>
+          <Button onClick={loadMore}>Load more</Button>
+        </div>
+      )}
     </div>
   );
 }
